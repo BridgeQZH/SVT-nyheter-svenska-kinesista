@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="基于 2026-06-29 文件夹内 SVT 新闻标题截图制作的瑞典语词汇学习笔记">
+  <title>从 SVT 新闻标题学瑞典语｜2026-06-29</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20272f;
+      --muted: #63707d;
+      --line: #d9e1e7;
+      --paper: #f5f7f8;
+      --panel: #ffffff;
+      --svt: #d8202f;
+      --blue: #1d607e;
+      --green: #236b51;
+      --amber: #8b5c0b;
+      --soft-blue: #edf5f8;
+      --soft-green: #eef8f3;
+      --soft-red: #fcebed;
+      --soft-amber: #fff7e7;
+      --shadow: 0 14px 34px rgba(28, 39, 48, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.7;
+    }
+    a { color: var(--blue); }
+    .wrap { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
+
+    header {
+      border-top: 10px solid var(--svt);
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 30px;
+      align-items: end;
+      padding: 44px 0 32px;
+    }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--svt);
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+    .lead { margin: 0; max-width: 740px; color: var(--muted); font-size: 1.08rem; }
+    .source-box {
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--soft-blue);
+      color: #405361;
+    }
+    .source-box p { margin: 5px 0; }
+
+    main { padding: 30px 0 58px; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 28px;
+    }
+    nav a {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    section {
+      margin-bottom: 25px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .section-inner { padding: 26px; }
+    .section-head { margin-bottom: 18px; }
+    .section-head p { margin: 6px 0 0; color: var(--muted); }
+    h2 { margin: 8px 0 0; font-size: clamp(1.55rem, 3vw, 2.25rem); line-height: 1.2; letter-spacing: 0; }
+    h3 { margin: 0; font-size: 1.18rem; letter-spacing: 0; }
+    h4 { margin: 0 0 5px; font-size: 1rem; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 27px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--soft-red);
+      color: #9c1821;
+      font-size: 0.79rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .overview-list { display: grid; gap: 1px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--line); }
+    .overview-item { display: grid; grid-template-columns: 76px 1fr; gap: 16px; padding: 16px; background: #fff; }
+    .overview-no { color: var(--svt); font-weight: 800; }
+    .overview-title { margin: 0; font-size: 1.2rem; font-weight: 800; }
+    .overview-translation { margin: 3px 0; color: var(--muted); }
+    .filename { margin: 0; color: #64737f; font-family: Consolas, "SFMono-Regular", monospace; font-size: 0.82rem; overflow-wrap: anywhere; }
+
+    .lesson-top { display: grid; grid-template-columns: minmax(280px, 0.86fr) 1.14fr; gap: 25px; align-items: start; }
+    figure { margin: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+    figure img { display: block; width: 100%; height: auto; }
+    figcaption { padding: 10px 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.86rem; }
+    .headline { margin: 11px 0 7px; font-size: clamp(1.55rem, 3.2vw, 2.45rem); line-height: 1.15; }
+    .translation { margin: 0 0 13px; color: var(--muted); font-size: 1.04rem; }
+    .gist { margin: 0; padding: 13px 15px; border-left: 5px solid var(--green); background: var(--soft-green); }
+    .caution { margin-top: 13px; padding: 12px 14px; border: 1px solid #eed49b; border-radius: 8px; background: var(--soft-amber); color: #65532e; }
+
+    .vocab-list { margin-top: 22px; border-top: 1px solid var(--line); }
+    .vocab-row { display: grid; grid-template-columns: minmax(165px, 0.34fr) 1fr; gap: 22px; padding: 21px 0; border-bottom: 1px solid var(--line); }
+    .vocab-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .word { color: var(--blue); font-size: 1.34rem; font-weight: 850; }
+    .pos { display: inline-block; margin-top: 5px; padding: 2px 7px; border-radius: 4px; background: var(--soft-blue); color: #355e72; font-size: 0.79rem; font-weight: 750; }
+    .sense { margin: 7px 0 0; color: var(--muted); }
+    .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 18px; }
+    .facts p { margin: 0; }
+    .facts b { color: #344a59; }
+    .examples { grid-column: 1 / -1; margin-top: 4px; padding: 12px 14px; border-radius: 8px; background: #f8fafb; }
+    .examples p { margin: 5px 0; }
+    .sv { font-weight: 700; }
+    .cn { color: var(--muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+    table { width: 100%; min-width: 930px; border-collapse: collapse; background: #fff; font-size: 0.92rem; }
+    th, td { padding: 12px 13px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--soft-blue); color: #294c5f; white-space: nowrap; }
+    tr:last-child td { border-bottom: 0; }
+    td:first-child { color: var(--blue); font-weight: 800; }
+
+    .toolkit { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .tool { padding: 15px; border: 1px solid var(--line); border-radius: 8px; }
+    .tool p { margin: 6px 0 0; color: var(--muted); }
+    .tool .sv { color: var(--blue); }
+    .grammar-note { margin-top: 16px; padding: 15px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafb; }
+    .grammar-note ul { margin: 8px 0 0; padding-left: 1.2rem; }
+
+    .quiz-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+    .quiz { padding: 16px; border: 1px solid var(--line); border-radius: 8px; }
+    .quiz ol { margin: 9px 0 0; padding-left: 1.25rem; }
+    .quiz li { margin: 8px 0; }
+    details { margin-top: 13px; border-top: 1px solid var(--line); padding-top: 11px; }
+    summary { color: var(--blue); font-weight: 800; cursor: pointer; }
+    details p, details ol { margin-bottom: 0; }
+
+    footer { padding: 24px 0 36px; border-top: 1px solid var(--line); background: #fff; color: var(--muted); }
+    footer p { margin: 4px 0; }
+
+    @media (max-width: 840px) {
+      .hero, .lesson-top, .vocab-row { grid-template-columns: 1fr; }
+      .toolkit { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .section-inner { padding: 19px; }
+      .vocab-row { gap: 10px; }
+    }
+    @media (max-width: 580px) {
+      .wrap { width: min(100% - 24px, 1120px); }
+      .hero { padding: 32px 0 25px; }
+      .overview-item, .facts, .toolkit, .quiz-grid { grid-template-columns: 1fr; }
+      .overview-item { gap: 4px; }
+      nav { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 5px; }
+      nav a { flex: 0 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div>
+        <p class="eyebrow">Svenska genom nyhetsrubriker</p>
+        <h1>从 SVT 新闻标题学瑞典语</h1>
+        <p class="lead">2026-06-29｜词汇扩展、同义词与高频表达。围绕 5 条短标题，把“看得懂”进一步变成“说得出、写得出”。</p>
+      </div>
+      <div class="source-box">
+        <p><b>数据来源：</b>本文件夹内 SVT 标题截图</p>
+        <p><b>学习重点：</b>词形变化、近义辨析、固定搭配、新闻语体</p>
+        <p><b>识别状态：</b>5 条标题均清晰，无待确认项</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav aria-label="页面导航">
+      <a href="#overview">标题总览</a>
+      <a href="#lesson-1">saknas</a>
+      <a href="#lesson-2">brist på</a>
+      <a href="#lesson-3">samtal</a>
+      <a href="#lesson-4">blixtar</a>
+      <a href="#lesson-5">strömningen</a>
+      <a href="#vocab-table">重点词表</a>
+      <a href="#headline-language">标题表达</a>
+      <a href="#review">复习</a>
+    </nav>
+
+    <section id="overview">
+      <div class="section-inner">
+        <div class="section-head"><span class="tag">Översikt</span><h2>新闻标题总览</h2><p>标题按截图文件名顺序排列；栏目标签用于提供主题背景，不额外推断报道细节。</p></div>
+        <div class="overview-list">
+          <article class="overview-item"><div class="overview-no">01 · Venezuela</div><div><p class="overview-title" lang="sv">50.000 saknas fortfarande</p><p class="overview-translation">仍有 5 万人失踪 / 下落不明。</p><p class="filename">Snipaste_2026-06-30_11-49-04.png</p></div></article>
+          <article class="overview-item"><div class="overview-no">02 · Ryssland</div><div><p class="overview-title" lang="sv">Brist på bränsle</p><p class="overview-translation">燃料短缺。</p><p class="filename">Snipaste_2026-06-30_11-50-58.png</p></div></article>
+          <article class="overview-item"><div class="overview-no">03 · Iran–USA</div><div><p class="overview-title" lang="sv">Nya samtal mellan länderna</p><p class="overview-translation">两国之间举行新的会谈。</p><p class="filename">Snipaste_2026-06-30_11-51-20.png</p></div></article>
+          <article class="overview-item"><div class="overview-no">04 · Skåne</div><div><p class="overview-title" lang="sv">Tusen blixtar på 30 minuter</p><p class="overview-translation">30 分钟内出现一千次闪电。</p><p class="filename">Snipaste_2026-06-30_11-51-38.png</p></div></article>
+          <article class="overview-item"><div class="overview-no">05 · Östersjön</div><div><p class="overview-title" lang="sv">Strömningen är tillbaka</p><p class="overview-translation">水流 / 环流回来了。</p><p class="filename">Snipaste_2026-06-30_11-52-03.png</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="lesson-1">
+      <div class="section-inner">
+        <div class="lesson-top">
+          <figure><img src="Snipaste_2026-06-30_11-49-04.png" alt="SVT 标题：50.000 saknas fortfarande"><figcaption>截图：Snipaste_2026-06-30_11-49-04.png</figcaption></figure>
+          <div><span class="tag">Venezuela</span><h2 class="headline" lang="sv">50.000 saknas fortfarande</h2><p class="translation">仍有 5 万人失踪 / 下落不明。</p><p class="gist"><b>标题大意：</b>标题只陈述“仍有 5 万人处于失踪状态”。截图本身未说明原因、时间范围或统计口径，因此不在此延伸新闻事实。</p><div class="caution"><b>数字习惯：</b>瑞典语材料中常用句点分隔千位，所以 <b>50.000</b> 表示 50 000，而不是小数 50.000。</div></div>
+        </div>
+        <div class="vocab-list">
+          <article class="vocab-row"><div><div class="word" lang="sv">saknas</div><span class="pos">动词</span><p class="sense">缺少；不见；下落不明。标题中表示“被列为失踪 / 尚未找到”。</p></div><div class="facts"><p><b>词形：</b><span lang="sv">saknas – saknades – saknats</span></p><p><b>近义：</b><span lang="sv">vara försvunnen, vara borta</span></p><p><b>反义：</b><span lang="sv">finnas, vara återfunnen</span></p><p><b>搭配：</b><span lang="sv">saknas efter olyckan; fortfarande saknas</span></p><p><b>辨析：</b><span lang="sv">sakna någon</span> 是“想念某人”；<span lang="sv">någon saknas</span> 是“某人不见了”。</p><p><b>场景：</b>新闻、警方通报、日常盘点都常见。</p><div class="examples"><p><span class="sv" lang="sv">Tre personer saknas fortfarande.</span> <span class="cn">仍有三人失踪。</span></p><p><span class="sv" lang="sv">En viktig uppgift saknas i rapporten.</span> <span class="cn">报告中缺少一项重要信息。</span></p><p><span class="sv" lang="sv">Jag saknar min familj.</span> <span class="cn">我想念家人。（注意此处是主动动词 sakna）</span></p></div></div></article>
+          <article class="vocab-row"><div><div class="word" lang="sv">fortfarande</div><span class="pos">副词</span><p class="sense">仍然、还是。标题中强调该状态尚未结束。</p></div><div class="facts"><p><b>词形：</b>副词，不变形</p><p><b>近义：</b><span lang="sv">ännu, alltjämt</span>（后者更正式）</p><p><b>反义：</b><span lang="sv">inte längre</span>（不再）</p><p><b>搭配：</b><span lang="sv">fortfarande okänd; fortfarande kvar</span></p><p><b>语序：</b>主句中通常放在限定动词后：<span lang="sv">Hon är fortfarande där.</span></p><p><b>场景：</b>日常与新闻都高频。</p><div class="examples"><p><span class="sv" lang="sv">Orsaken är fortfarande okänd.</span> <span class="cn">原因仍然不明。</span></p><p><span class="sv" lang="sv">Arbetet pågår fortfarande.</span> <span class="cn">工作仍在进行。</span></p></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="lesson-2">
+      <div class="section-inner">
+        <div class="lesson-top">
+          <figure><img src="Snipaste_2026-06-30_11-50-58.png" alt="SVT 标题：Brist på bränsle"><figcaption>截图：Snipaste_2026-06-30_11-50-58.png</figcaption></figure>
+          <div><span class="tag">Ryssland</span><h2 class="headline" lang="sv">Brist på bränsle</h2><p class="translation">燃料短缺。</p><p class="gist"><b>标题大意：</b>标题表达某处存在燃料供应不足。它是典型的无动词名词短语，未说明短缺原因或程度。</p></div>
+        </div>
+        <div class="vocab-list">
+          <article class="vocab-row"><div><div class="word" lang="sv">brist på</div><span class="pos">名词短语</span><p class="sense">缺乏、短缺。标题中指燃料供应不足。</p></div><div class="facts"><p><b>词形：</b><span lang="sv">en brist – bristen – brister – bristerna</span></p><p><b>近义：</b><span lang="sv">underskott, knapphet, avsaknad</span></p><p><b>反义：</b><span lang="sv">överskott; gott om</span></p><p><b>搭配：</b><span lang="sv">brist på personal, bostäder, mat</span></p><p><b>结构：</b><span lang="sv">det råder brist på …</span> 是正式新闻句型。</p><p><b>场景：</b>新闻、经济、医疗和正式报告高频。</p><div class="examples"><p><span class="sv" lang="sv">Det råder brist på sjuksköterskor.</span> <span class="cn">护士人手短缺。</span></p><p><span class="sv" lang="sv">Företaget har brist på råvaror.</span> <span class="cn">该公司缺少原材料。</span></p><p><span class="sv" lang="sv">Det finns gott om tid.</span> <span class="cn">时间很充足。（反义表达）</span></p></div></div></article>
+          <article class="vocab-row"><div><div class="word" lang="sv">bränsle</div><span class="pos">ett-名词</span><p class="sense">燃料。可泛指汽油、柴油、航空燃料、生物燃料等。</p></div><div class="facts"><p><b>词形：</b><span lang="sv">ett bränsle – bränslet – bränslen – bränslena</span></p><p><b>近义：</b><span lang="sv">drivmedel</span>（尤指交通工具燃料）</p><p><b>相关词：</b><span lang="sv">bensin, diesel, biobränsle</span></p><p><b>搭配：</b><span lang="sv">bränslepris, bränslebrist, fossila bränslen</span></p><p><b>构词：</b><span lang="sv">bränna</span>“燃烧”与 <span lang="sv">bränsle</span> 同词族。</p><p><b>场景：</b>能源、交通、经济与环境报道。</p><div class="examples"><p><span class="sv" lang="sv">Priset på bränsle har stigit.</span> <span class="cn">燃料价格上涨了。</span></p><p><span class="sv" lang="sv">Bussen körs med förnybart bränsle.</span> <span class="cn">这辆公交车使用可再生燃料。</span></p></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="lesson-3">
+      <div class="section-inner">
+        <div class="lesson-top">
+          <figure><img src="Snipaste_2026-06-30_11-51-20.png" alt="SVT 标题：Nya samtal mellan länderna"><figcaption>截图：Snipaste_2026-06-30_11-51-20.png</figcaption></figure>
+          <div><span class="tag">Iran–USA</span><h2 class="headline" lang="sv">Nya samtal mellan länderna</h2><p class="translation">两国之间举行新的会谈。</p><p class="gist"><b>标题大意：</b>两国之间出现新一轮会谈。栏目标签指出双方为 Iran–USA；标题本身没有交代议题、形式或结果。</p></div>
+        </div>
+        <div class="vocab-list">
+          <article class="vocab-row"><div><div class="word" lang="sv">samtal</div><span class="pos">ett-名词</span><p class="sense">谈话、通话、会谈。标题的复数语境更接近外交“会谈”。</p></div><div class="facts"><p><b>词形：</b><span lang="sv">ett samtal – samtalet – samtal – samtalen</span></p><p><b>近义：</b><span lang="sv">diskussion, dialog, förhandling</span></p><p><b>辨析：</b><span lang="sv">förhandling</span> 更强调协商条件；<span lang="sv">dialog</span> 强调持续沟通。</p><p><b>搭配：</b><span lang="sv">inleda samtal, hålla samtal, fredssamtal</span></p><p><b>动词：</b><span lang="sv">samtala med någon om något</span></p><p><b>场景：</b>外交新闻正式，也可指日常谈话。</p><div class="examples"><p><span class="sv" lang="sv">Länderna ska inleda nya samtal.</span> <span class="cn">两国将开始新一轮会谈。</span></p><p><span class="sv" lang="sv">Parterna fortsätter dialogen.</span> <span class="cn">各方继续对话。</span></p><p><span class="sv" lang="sv">Vi hade ett långt samtal i går.</span> <span class="cn">我们昨天进行了一次长谈。</span></p></div></div></article>
+          <article class="vocab-row"><div><div class="word" lang="sv">mellan</div><span class="pos">介词</span><p class="sense">在……之间。标题中连接参与会谈的两个国家。</p></div><div class="facts"><p><b>词形：</b>介词，不变形</p><p><b>相关：</b><span lang="sv">bland</span>（在一群 / 多个对象之中）</p><p><b>反向概念：</b><span lang="sv">inom</span>（在……内部）</p><p><b>搭配：</b><span lang="sv">samarbete mellan; skillnad mellan</span></p><p><b>结构：</b><span lang="sv">mellan A och B</span></p><p><b>场景：</b>日常和正式语体都高频。</p><div class="examples"><p><span class="sv" lang="sv">Avtalet gäller mellan de två länderna.</span> <span class="cn">该协议适用于这两个国家之间。</span></p><p><span class="sv" lang="sv">Det finns stora skillnader mellan regionerna.</span> <span class="cn">各地区之间存在很大差异。</span></p></div></div></article>
+          <article class="vocab-row"><div><div class="word" lang="sv">länderna</div><span class="pos">ett-名词 · 定复数</span><p class="sense">这些 / 那些国家。标题中回指栏目标签已经点明的两个国家。</p></div><div class="facts"><p><b>词形：</b><span lang="sv">ett land – landet – länder – länderna</span></p><p><b>近义：</b><span lang="sv">staterna</span>（国家实体，较正式）</p><p><b>相关词：</b><span lang="sv">grannland, hemland, utland</span></p><p><b>搭配：</b><span lang="sv">de nordiska länderna; mellan länderna</span></p><p><b>语法：</b>不规则复数元音变化：<span lang="sv">land → länder</span>。</p><p><b>场景：</b>地理、政治、国际新闻。</p><div class="examples"><p><span class="sv" lang="sv">Länderna har skrivit under ett avtal.</span> <span class="cn">这些国家已经签署一项协议。</span></p><p><span class="sv" lang="sv">Samarbetet mellan länderna ökar.</span> <span class="cn">国家间的合作正在增加。</span></p></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="lesson-4">
+      <div class="section-inner">
+        <div class="lesson-top">
+          <figure><img src="Snipaste_2026-06-30_11-51-38.png" alt="SVT 标题：Tusen blixtar på 30 minuter"><figcaption>截图：Snipaste_2026-06-30_11-51-38.png</figcaption></figure>
+          <div><span class="tag">Skåne</span><h2 class="headline" lang="sv">Tusen blixtar på 30 minuter</h2><p class="translation">30 分钟内出现一千次闪电。</p><p class="gist"><b>标题大意：</b>标题用“数量 + 时间窗口”突出闪电出现的密度。它没有动词，完整表达可补成 <span lang="sv">Det registrerades tusen blixtar på 30 minuter.</span></p></div>
+        </div>
+        <div class="vocab-list">
+          <article class="vocab-row"><div><div class="word" lang="sv">blixt</div><span class="pos">en-名词</span><p class="sense">闪电、闪光。标题用复数 <span lang="sv">blixtar</span>。</p></div><div class="facts"><p><b>词形：</b><span lang="sv">en blixt – blixten – blixtar – blixtarna</span></p><p><b>相关：</b><span lang="sv">åska</span>（雷暴 / 雷声），<span lang="sv">dunder</span>（雷鸣）</p><p><b>构词：</b><span lang="sv">blixtnedslag</span>（雷击），<span lang="sv">åskväder</span>（雷雨）</p><p><b>搭配：</b><span lang="sv">blixten slår ner; träffas av blixten</span></p><p><b>辨析：</b><span lang="sv">blixt</span> 是光；<span lang="sv">åska</span> 指雷暴现象。</p><p><b>场景：</b>天气新闻，也可比喻极快。</p><div class="examples"><p><span class="sv" lang="sv">Blixten slog ner nära huset.</span> <span class="cn">闪电击中了房屋附近。</span></p><p><span class="sv" lang="sv">Ett kraftigt åskväder drog in.</span> <span class="cn">一场强雷暴移入该地区。</span></p><p><span class="sv" lang="sv">Himlen lystes upp av blixtar.</span> <span class="cn">天空被一道道闪电照亮。</span></p></div></div></article>
+          <article class="vocab-row"><div><div class="word" lang="sv">på 30 minuter</div><span class="pos">时间介词短语</span><p class="sense">在 30 分钟内，强调完成量或该时间窗口内发生的数量。</p></div><div class="facts"><p><b>结构：</b><span lang="sv">på + 时间段</span></p><p><b>近义：</b><span lang="sv">inom loppet av 30 minuter</span>（较正式）</p><p><b>对比：</b><span lang="sv">i 30 minuter</span> 表示“持续 30 分钟”。</p><p><b>对比：</b><span lang="sv">om 30 minuter</span> 表示“30 分钟后”。</p><p><b>搭配：</b><span lang="sv">på kort tid; på bara en timme</span></p><p><b>场景：</b>统计、比赛、效率与突发新闻。</p><div class="examples"><p><span class="sv" lang="sv">Hon läste boken på två dagar.</span> <span class="cn">她两天内读完了这本书。</span></p><p><span class="sv" lang="sv">Det regnade i två timmar.</span> <span class="cn">雨持续下了两个小时。</span></p><p><span class="sv" lang="sv">Mötet börjar om tio minuter.</span> <span class="cn">会议十分钟后开始。</span></p></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="lesson-5">
+      <div class="section-inner">
+        <div class="lesson-top">
+          <figure><img src="Snipaste_2026-06-30_11-52-03.png" alt="SVT 标题：Strömningen är tillbaka"><figcaption>截图：Snipaste_2026-06-30_11-52-03.png</figcaption></figure>
+          <div><span class="tag">Östersjön</span><h2 class="headline" lang="sv">Strömningen är tillbaka</h2><p class="translation">水流 / 环流回来了。</p><p class="gist"><b>标题大意：</b>波罗的海语境中的某种水流或环流再次出现。仅凭标题无法确定它具体指哪一种海洋过程，因此这里专注于词义与用法。</p><div class="caution"><b>不要混淆：</b><span lang="sv">strömning</span> 常指流动、流向或环流；<span lang="sv">ström</span> 还可表示电流、电力。具体科学含义请回看原始 SVT 报道。</div></div>
+        </div>
+        <div class="vocab-list">
+          <article class="vocab-row"><div><div class="word" lang="sv">strömning</div><span class="pos">en-名词</span><p class="sense">流动、流向、环流。标题中根据“Östersjön”栏目理解为水体流动。</p></div><div class="facts"><p><b>词形：</b><span lang="sv">en strömning – strömningen – strömningar – strömningarna</span></p><p><b>近义：</b><span lang="sv">flöde, cirkulation, ström</span>（依语境）</p><p><b>反义概念：</b><span lang="sv">stagnation, stillastående vatten</span></p><p><b>搭配：</b><span lang="sv">havets strömningar; atmosfäriska strömningar</span></p><p><b>词族：</b><span lang="sv">strömma</span>（流动），<span lang="sv">inströmning</span>（流入）</p><p><b>场景：</b>海洋、天气、物理等较正式语境。</p><div class="examples"><p><span class="sv" lang="sv">Havets strömningar påverkar klimatet.</span> <span class="cn">海洋环流影响气候。</span></p><p><span class="sv" lang="sv">Vattnet strömmar in genom sundet.</span> <span class="cn">水流经海峡涌入。</span></p><p><span class="sv" lang="sv">Forskarna mäter strömningen.</span> <span class="cn">研究人员正在测量水流。</span></p></div></div></article>
+          <article class="vocab-row"><div><div class="word" lang="sv">är tillbaka</div><span class="pos">固定表达</span><p class="sense">回来了、恢复了、重新出现。标题中表示该流动现象再次出现。</p></div><div class="facts"><p><b>原形：</b><span lang="sv">vara tillbaka</span></p><p><b>近义：</b><span lang="sv">har återvänt, har kommit tillbaka, är åter</span></p><p><b>反义：</b><span lang="sv">är borta, har försvunnit</span></p><p><b>搭配：</b><span lang="sv">snart tillbaka; tillbaka på jobbet</span></p><p><b>语气：</b><span lang="sv">är åter</span> 更凝练正式；<span lang="sv">är tillbaka</span> 很通用。</p><p><b>场景：</b>新闻标题与日常口语均高频。</p><div class="examples"><p><span class="sv" lang="sv">Tågen är tillbaka i trafik.</span> <span class="cn">列车已恢复运行。</span></p><p><span class="sv" lang="sv">Hon är tillbaka på jobbet.</span> <span class="cn">她回来上班了。</span></p><p><span class="sv" lang="sv">Problemet har kommit tillbaka.</span> <span class="cn">问题又出现了。</span></p></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="vocab-table">
+      <div class="section-inner">
+        <div class="section-head"><span class="tag">15 nyckelord</span><h2>重点词汇延伸表</h2><p>先记粗体搭配，再用例句确认语感；比孤立背中文释义更容易迁移到新标题。</p></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>瑞典语</th><th>中文意思</th><th>高频搭配</th><th>近义表达</th><th>例句</th><th>记忆提示</th></tr></thead>
+          <tbody>
+            <tr><td>saknas</td><td>缺少；失踪</td><td>fortfarande saknas</td><td>vara försvunnen</td><td>Två personer saknas.</td><td>“某人不见了”用 saknas</td></tr>
+            <tr><td>sakna</td><td>想念；缺少</td><td>sakna någon</td><td>längta efter</td><td>Jag saknar dig.</td><td>主动者放句首</td></tr>
+            <tr><td>fortfarande</td><td>仍然</td><td>fortfarande okänd</td><td>ännu, alltjämt</td><td>Frågan är fortfarande öppen.</td><td>反义：inte längre</td></tr>
+            <tr><td>brist</td><td>短缺</td><td>brist på personal</td><td>underskott, knapphet</td><td>Det råder brist på mat.</td><td>固定介词 på</td></tr>
+            <tr><td>bränsle</td><td>燃料</td><td>fossila bränslen</td><td>drivmedel</td><td>Bränslet räcker inte.</td><td>ett-名词</td></tr>
+            <tr><td>samtal</td><td>谈话；会谈</td><td>inleda samtal</td><td>dialog, diskussion</td><td>Parterna håller samtal.</td><td>单复数同形</td></tr>
+            <tr><td>förhandling</td><td>谈判</td><td>inleda förhandlingar</td><td>överläggning</td><td>Förhandlingarna fortsätter.</td><td>强调条件协商</td></tr>
+            <tr><td>mellan</td><td>在……之间</td><td>mellan A och B</td><td>—</td><td>Avståndet mellan städerna är kort.</td><td>多对象群体常用 bland</td></tr>
+            <tr><td>länderna</td><td>这些国家</td><td>mellan länderna</td><td>staterna</td><td>Länderna samarbetar.</td><td>land → länder</td></tr>
+            <tr><td>blixt</td><td>闪电</td><td>blixten slår ner</td><td>—</td><td>Vi såg en blixt.</td><td>光是 blixt，雷暴是 åska</td></tr>
+            <tr><td>åskväder</td><td>雷雨、雷暴</td><td>kraftigt åskväder</td><td>oväder</td><td>Ett åskväder närmar sig.</td><td>åska + väder</td></tr>
+            <tr><td>på kort tid</td><td>短时间内</td><td>öka på kort tid</td><td>inom kort tid</td><td>Mycket hände på kort tid.</td><td>强调时间内完成量</td></tr>
+            <tr><td>strömning</td><td>流动、环流</td><td>havets strömningar</td><td>flöde, cirkulation</td><td>Strömningen har ändrats.</td><td>来自动词 strömma</td></tr>
+            <tr><td>påverka</td><td>影响</td><td>påverka klimatet</td><td>inverka på</td><td>Vädret påverkar trafiken.</td><td>直接接宾语，无介词</td></tr>
+            <tr><td>vara tillbaka</td><td>回来、恢复</td><td>tillbaka i trafik</td><td>återvända, vara åter</td><td>Servicen är tillbaka.</td><td>反义：vara borta</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section id="headline-language">
+      <div class="section-inner">
+        <div class="section-head"><span class="tag">Nyhetsspråk</span><h2>新闻标题常见表达总结</h2><p>下面是由本组标题引出的新闻瑞典语工具箱，用来帮助你读懂其他报道；这些例句是语言示例，不是在补充本组新闻事实。</p></div>
+        <div class="toolkit">
+          <article class="tool"><h3>发生</h3><p><span class="sv" lang="sv">inträffa, ske, bryta ut</span><br><span lang="sv">En olycka inträffade.</span> 发生了一起事故。</p></article>
+          <article class="tool"><h3>导致</h3><p><span class="sv" lang="sv">leda till, orsaka, få till följd</span><br><span lang="sv">Ovädret ledde till problem.</span> 恶劣天气导致问题。</p></article>
+          <article class="tool"><h3>影响</h3><p><span class="sv" lang="sv">påverka, drabba, beröra</span><br><span lang="sv">Trafiken påverkas.</span> 交通受到影响。</p></article>
+          <article class="tool"><h3>警告</h3><p><span class="sv" lang="sv">varna för, utfärda en varning</span><br><span lang="sv">SMHI varnar för åska.</span> SMHI 警告有雷暴。</p></article>
+          <article class="tool"><h3>调查</h3><p><span class="sv" lang="sv">utreda, undersöka, granska</span><br><span lang="sv">Polisen utreder händelsen.</span> 警方调查该事件。</p></article>
+          <article class="tool"><h3>增长 / 减少</h3><p><span class="sv" lang="sv">öka / minska; stiga / sjunka</span><br><span lang="sv">Priserna har stigit.</span> 价格上涨了。</p></article>
+          <article class="tool"><h3>机构与人群</h3><p><span class="sv" lang="sv">regeringen</span> 政府；<span lang="sv">polisen</span> 警方；<span lang="sv">experter</span> 专家；<span lang="sv">invånare</span> 居民。</p></article>
+          <article class="tool"><h3>地点与局势</h3><p><span class="sv" lang="sv">område</span> 地区；<span lang="sv">kris</span> 危机；<span lang="sv">risk</span> 风险；<span lang="sv">läge</span> 形势。</p></article>
+          <article class="tool"><h3>短标题结构</h3><p><span class="sv" lang="sv">Brist på bränsle</span> 省略“存在”；<span class="sv" lang="sv">Tusen blixtar …</span> 省略“记录到 / 出现”。</p></article>
+        </div>
+        <div class="grammar-note"><h3>本组标题里的三个阅读诀窍</h3><ul><li><b>先找栏目标签：</b><span lang="sv">Venezuela, Ryssland, Iran–USA, Skåne, Östersjön</span> 补足地点或主题，却不一定是完整句子的主语。</li><li><b>给名词标题补一个中性动词：</b><span lang="sv">Det råder brist på bränsle</span>、<span lang="sv">Det registrerades tusen blixtar</span>，能帮助理解但不应误当作截图原文。</li><li><b>留意定形式：</b><span lang="sv">länderna</span> 和 <span lang="sv">strömningen</span> 的词尾表示读者可从上下文识别所指对象。</li></ul></div>
+      </div>
+    </section>
+
+    <section id="review">
+      <div class="section-inner">
+        <div class="section-head"><span class="tag">Repetition</span><h2>最后复习区</h2><p>先独立完成，再展开答案。建议把答错的搭配整句抄写一次。</p></div>
+        <div class="quiz-grid">
+          <article class="quiz"><h3>词汇自测</h3><ol><li><span lang="sv">saknas</span></li><li><span lang="sv">brist på</span></li><li><span lang="sv">blixt</span></li><li><span lang="sv">strömning</span></li><li><span lang="sv">fortfarande</span></li></ol><details><summary>查看答案</summary><ol><li>缺少；失踪</li><li>缺乏、短缺</li><li>闪电</li><li>流动、环流</li><li>仍然</li></ol></details></article>
+          <article class="quiz"><h3>搭配填空</h3><ol><li>Det råder ___ på personal.</li><li>Tre personer ___ fortfarande.</li><li>Länderna ska ___ nya samtal.</li><li>Blixten slog ___ nära huset.</li><li>Tågen är tillbaka ___ trafik.</li></ol><details><summary>查看答案</summary><ol><li>brist</li><li>saknas</li><li>inleda</li><li>ner</li><li>i</li></ol></details></article>
+          <article class="quiz"><h3>介词选择</h3><ol><li>她两小时内完成工作：___ två timmar</li><li>雨持续了两小时：___ två timmar</li><li>火车十分钟后到：___ tio minuter</li><li>两国之间：___ länderna</li></ol><details><summary>查看答案</summary><ol><li>på två timmar</li><li>i två timmar</li><li>om tio minuter</li><li>mellan länderna</li></ol></details></article>
+          <article class="quiz"><h3>翻译练习</h3><ol><li>原因仍然不明。</li><li>该地区燃料短缺。</li><li>两国开始新的会谈。</li><li>海洋环流影响气候。</li></ol><details><summary>参考答案</summary><ol><li><span lang="sv">Orsaken är fortfarande okänd.</span></li><li><span lang="sv">Det råder brist på bränsle i området.</span></li><li><span lang="sv">Länderna inleder nya samtal.</span></li><li><span lang="sv">Havets strömningar påverkar klimatet.</span></li></ol></details></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap"><p><b>复习建议：</b>优先掌握 <span lang="sv">fortfarande saknas</span>、<span lang="sv">brist på</span>、<span lang="sv">inleda samtal</span>、<span lang="sv">på 30 minuter</span>、<span lang="sv">är tillbaka</span> 这五个表达块。</p><p>本页为瑞典语学习笔记，新闻事实请以原始 SVT 报道为准。</p></div>
+  </footer>
+</body>
+</html>
