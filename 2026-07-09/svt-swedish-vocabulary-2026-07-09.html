@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>从 SVT 新闻标题学瑞典语｜2026-07-09</title>
+  <style>
+    :root {
+      --svt-red: #e11d35;
+      --ink: #18202a;
+      --muted: #5c6978;
+      --line: #d9e0e8;
+      --paper: #f6f8fb;
+      --card: #ffffff;
+      --soft-red: #fff1f3;
+      --soft-blue: #eef6ff;
+      --soft-green: #eefaf4;
+      --soft-yellow: #fff8df;
+      --accent-blue: #1e5da8;
+      --accent-green: #0c7a52;
+      --accent-yellow: #9a6b00;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .topbar {
+      height: 8px;
+      background: var(--svt-red);
+    }
+
+    header {
+      background: linear-gradient(135deg, #ffffff 0%, #eef6ff 58%, #fff1f3 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 48px 0 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 14px;
+      color: var(--svt-red);
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      font-size: .88rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 4.1rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.7vw, 1.25rem);
+      max-width: 760px;
+    }
+
+    .source {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, .7);
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    main {
+      padding: 34px 0 54px;
+    }
+
+    section {
+      margin: 0 0 32px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: clamp(1.35rem, 2.2vw, 2rem);
+      line-height: 1.25;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.18rem;
+      line-height: 1.35;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .overview-card,
+    .study-card,
+    .note-card,
+    .review-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 10px 26px rgba(28, 42, 58, .06);
+    }
+
+    .overview-card {
+      padding: 16px;
+    }
+
+    .file {
+      color: var(--muted);
+      font-size: .88rem;
+      word-break: break-all;
+    }
+
+    .sv {
+      margin: 8px 0 5px;
+      font-size: 1.3rem;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .zh {
+      margin: 0;
+      color: #374151;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--soft-blue);
+      color: var(--accent-blue);
+      font-weight: 750;
+      font-size: .82rem;
+      white-space: nowrap;
+    }
+
+    .tag.red {
+      background: var(--soft-red);
+      color: #b31529;
+    }
+
+    .tag.green {
+      background: var(--soft-green);
+      color: var(--accent-green);
+    }
+
+    .tag.yellow {
+      background: var(--soft-yellow);
+      color: var(--accent-yellow);
+    }
+
+    .study-card {
+      overflow: hidden;
+    }
+
+    .shot {
+      background: #111827;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .card-body {
+      padding: 18px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .gist {
+      margin: 12px 0 16px;
+      padding: 12px;
+      border-left: 4px solid var(--svt-red);
+      background: #fff8f9;
+      color: #374151;
+    }
+
+    .vocab-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .vocab {
+      padding: 13px;
+      border: 1px solid #e5eaf0;
+      border-radius: 8px;
+      background: #fbfdff;
+    }
+
+    .vocab-title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+
+    .word {
+      font-size: 1.12rem;
+      font-weight: 850;
+      color: #111827;
+    }
+
+    .pos {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .vocab p {
+      margin: 5px 0;
+    }
+
+    .examples {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+
+    .examples li {
+      margin: 4px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      display: table;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #edf2f7;
+      font-size: .92rem;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .note-card,
+    .review-card {
+      padding: 18px;
+    }
+
+    .pattern-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .pattern {
+      padding: 14px;
+      border-radius: 8px;
+      background: #fbfdff;
+      border: 1px solid #e5eaf0;
+    }
+
+    .pattern strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    details {
+      margin: 12px 0;
+      padding: 13px 15px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 26px 0 38px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      background: #ffffff;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    @media (max-width: 820px) {
+      .grid,
+      .pattern-list {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 36px 0 28px;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar"></div>
+  <header>
+    <div class="wrap hero">
+      <p class="eyebrow">SVT Rubriker · Svenska ord</p>
+      <h1>从 SVT 新闻标题学瑞典语</h1>
+      <p class="subtitle">2026-07-09｜词汇扩展、同义词与高频表达。基于本文件夹内 5 张 SVT 新闻标题截图整理，重点练习标题里的核心动词、名词短语和新闻高频结构。</p>
+      <p class="source">数据来源：本文件夹内 SVT 标题截图</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>新闻标题总览</h2>
+      <div class="grid">
+        <article class="overview-card">
+          <div class="file">Snipaste_2026-07-09_20-12-49.png</div>
+          <div class="sv">Attackerna fortsatte i natt</div>
+          <p class="zh">袭击在昨夜继续。</p>
+        </article>
+        <article class="overview-card">
+          <div class="file">Snipaste_2026-07-09_20-13-33.png</div>
+          <div class="sv">Franska soldater i Sverige</div>
+          <p class="zh">法国士兵在瑞典。</p>
+        </article>
+        <article class="overview-card">
+          <div class="file">Snipaste_2026-07-09_20-13-56.png</div>
+          <div class="sv">Vill bygga datacenter i Sverige</div>
+          <p class="zh">想在瑞典建设数据中心。</p>
+        </article>
+        <article class="overview-card">
+          <div class="file">Snipaste_2026-07-09_20-16-40.png</div>
+          <div class="sv">Risk för brist på vatten</div>
+          <p class="zh">有缺水风险。</p>
+        </article>
+        <article class="overview-card">
+          <div class="file">Snipaste_2026-07-09_20-17-06.png</div>
+          <div class="sv">Frankrike möter Marocko</div>
+          <p class="zh">法国对阵摩洛哥。</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>标题逐条精读</h2>
+
+      <article class="study-card">
+        <div class="shot"><img src="Snipaste_2026-07-09_20-12-49.png" alt="SVT 标题截图：Attackerna fortsatte i natt"></div>
+        <div class="card-body">
+          <div class="meta-row"><span class="tag red">USA-IRAN</span><span class="tag">动态持续</span></div>
+          <h3>Attackerna fortsatte i natt</h3>
+          <p class="zh">中文：袭击在昨夜继续。</p>
+          <p class="gist">标题大意：强调某一组袭击行为没有停止，而是在夜间继续发生。标题只说明“继续”这一状态，不展开袭击细节。</p>
+          <div class="vocab-list">
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">attack</span><span class="pos">名词，en-词</span></div>
+              <p><strong>含义：</strong>袭击、攻击；标题中 `attackerna` 是复数定形，表示“这些/那些袭击”。</p>
+              <p><strong>变形：</strong>en attack, attacken, attacker, attackerna。</p>
+              <p><strong>近义词：</strong>angrepp, anfall。<strong>反义表达：</strong>försvar, skydd。</p>
+              <p><strong>高频搭配：</strong>en militär attack, en cyberattack, attack mot civila, utsättas för en attack。</p>
+              <ul class="examples">
+                <li>Staden utsattes för en attack.｜这座城市遭到袭击。</li>
+                <li>Polisen utreder attacken.｜警方正在调查这起袭击。</li>
+                <li>Flera attacker rapporterades under natten.｜夜间有多起袭击被报告。</li>
+              </ul>
+              <p><strong>场景：</strong>新闻、军事、安全、网络安全报道中非常高频。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">fortsätta</span><span class="pos">动词</span></div>
+              <p><strong>含义：</strong>继续；标题中 `fortsatte` 是过去式，说明“继续了”。</p>
+              <p><strong>变形：</strong>fortsätter, fortsatte, fortsatt。常接动词不定式：fortsätta att göra något。</p>
+              <p><strong>近义词：</strong>pågå, hålla på, gå vidare。<strong>反义词：</strong>sluta, upphöra, avbryta。</p>
+              <p><strong>高频搭配：</strong>fortsätta öka, fortsätta falla, fortsätta samtalen, fortsätta arbetet。</p>
+              <ul class="examples">
+                <li>Regnet fortsatte hela dagen.｜雨下了一整天。</li>
+                <li>Priserna fortsätter att stiga.｜价格继续上涨。</li>
+                <li>Förhandlingarna fortsatte på kvällen.｜谈判在晚上继续。</li>
+              </ul>
+              <p><strong>场景：</strong>新闻标题常用来表达趋势延续，语气简洁而中性。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">i natt</span><span class="pos">时间状语</span></div>
+              <p><strong>含义：</strong>昨夜、今天凌晨这一夜。瑞典语里 `natt` 指夜晚，`i natt` 常根据说话时间理解为“昨晚/今夜”。</p>
+              <p><strong>近义表达：</strong>under natten, sent i går kväll, tidigt i morse。</p>
+              <p><strong>高频搭配：</strong>hände i natt, skedde i natt, stormade i natt, föll i natt。</p>
+              <ul class="examples">
+                <li>Det snöade i natt.｜昨夜下雪了。</li>
+                <li>En brand startade i natt.｜昨夜发生了一场火灾。</li>
+                <li>Temperaturen föll i natt.｜夜间气温下降了。</li>
+              </ul>
+              <p><strong>场景：</strong>新闻快讯、天气、突发事件中很常见。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="study-card">
+        <div class="shot"><img src="Snipaste_2026-07-09_20-13-33.png" alt="SVT 标题截图：Franska soldater i Sverige"></div>
+        <div class="card-body">
+          <div class="meta-row"><span class="tag red">FÖRSVARET</span><span class="tag green">名词短语标题</span></div>
+          <h3>Franska soldater i Sverige</h3>
+          <p class="zh">中文：法国士兵在瑞典。</p>
+          <p class="gist">标题大意：这是一个省略动词的新闻标题，用“形容词 + 名词 + 地点”直接制造信息焦点。标题没有说明他们为什么在瑞典。</p>
+          <div class="vocab-list">
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">fransk</span><span class="pos">形容词</span></div>
+              <p><strong>含义：</strong>法国的、法国人的；标题中 `franska` 修饰复数名词 `soldater`。</p>
+              <p><strong>变形：</strong>fransk, franskt, franska。人称名词是 `fransman`、`fransyska`，国家名是 `Frankrike`。</p>
+              <p><strong>近义表达：</strong>från Frankrike。<strong>相关词：</strong>fransktalande, franskledd。</p>
+              <p><strong>高频搭配：</strong>franska myndigheter, franska regeringen, franska landslaget, franska soldater。</p>
+              <ul class="examples">
+                <li>Den franska regeringen kommenterade beslutet.｜法国政府评论了这一决定。</li>
+                <li>Hon läser fransk litteratur.｜她读法国文学。</li>
+                <li>Franska företag investerar i Norden.｜法国企业在北欧投资。</li>
+              </ul>
+              <p><strong>场景：</strong>新闻里常用于国家、政府、军队、球队、企业等修饰。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">soldat</span><span class="pos">名词，en-词</span></div>
+              <p><strong>含义：</strong>士兵、军人；标题中 `soldater` 是复数不定形。</p>
+              <p><strong>变形：</strong>en soldat, soldaten, soldater, soldaterna。</p>
+              <p><strong>近义词：</strong>militär, försvarspersonal。<strong>反义或对照：</strong>civil, civilperson。</p>
+              <p><strong>高频搭配：</strong>utländska soldater, svenska soldater, skicka soldater, soldater på plats。</p>
+              <ul class="examples">
+                <li>Flera soldater deltog i övningen.｜多名士兵参加了演习。</li>
+                <li>Soldaterna är på plats i området.｜士兵们已在该地区部署。</li>
+                <li>Landet skickar soldater till insatsen.｜该国派士兵参加行动。</li>
+              </ul>
+              <p><strong>场景：</strong>军事、防务、国际新闻中常见，比 `militär` 更具体。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">försvar</span><span class="pos">名词，ett-词</span></div>
+              <p><strong>含义：</strong>防务、防御、国防；截图红色栏目词 `FÖRSVARET` 表示“国防/防务领域”。</p>
+              <p><strong>变形：</strong>ett försvar, försvaret。动词是 `försvara`，形容词相关表达如 `försvarspolitisk`。</p>
+              <p><strong>近义表达：</strong>militärt försvar, skydd。<strong>反义：</strong>attack, angrepp。</p>
+              <p><strong>高频搭配：</strong>svenska försvaret, stärka försvaret, försvarsminister, försvarsbudget。</p>
+              <ul class="examples">
+                <li>Regeringen vill stärka försvaret.｜政府希望加强国防。</li>
+                <li>Försvaret övar i norra Sverige.｜国防部队在瑞典北部演练。</li>
+                <li>Frågan gäller landets försvar.｜这个问题涉及国家防务。</li>
+              </ul>
+              <p><strong>场景：</strong>正式新闻、政治、军事语境。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="study-card">
+        <div class="shot"><img src="Snipaste_2026-07-09_20-13-56.png" alt="SVT 标题截图：Vill bygga datacenter i Sverige"></div>
+        <div class="card-body">
+          <div class="meta-row"><span class="tag red">GOOGLE</span><span class="tag">计划与意愿</span></div>
+          <h3>Vill bygga datacenter i Sverige</h3>
+          <p class="zh">中文：想在瑞典建设数据中心。</p>
+          <p class="gist">标题大意：截图栏目显示 Google；标题本身省略主语，用 `vill + 动词原形` 表达计划或意愿。</p>
+          <div class="vocab-list">
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">vilja</span><span class="pos">动词，情态动词用法</span></div>
+              <p><strong>含义：</strong>想要、希望；标题中 `vill` 后接动词原形 `bygga`。</p>
+              <p><strong>变形：</strong>vill, ville, velat。注意现在式 `vill` 不加 `-er`。</p>
+              <p><strong>近义词：</strong>önska, planera att, ha som mål att。<strong>反义表达：</strong>vägra, avstå från。</p>
+              <p><strong>高频搭配：</strong>vill ha, vill se, vill stoppa, vill bygga, vill införa。</p>
+              <ul class="examples">
+                <li>Kommunen vill bygga fler bostäder.｜市政府想建设更多住房。</li>
+                <li>Företaget vill minska utsläppen.｜公司希望减少排放。</li>
+                <li>Oppositionen vill se en utredning.｜反对派希望看到一项调查。</li>
+              </ul>
+              <p><strong>场景：</strong>新闻标题里常表示政府、企业、政党提出的目标或主张。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">bygga</span><span class="pos">动词</span></div>
+              <p><strong>含义：</strong>建设、建造；也可抽象表示“建立”。</p>
+              <p><strong>变形：</strong>bygger, byggde, byggt。名词：bygge, byggnad, byggande。</p>
+              <p><strong>近义词：</strong>uppföra, anlägga, skapa。<strong>反义表达：</strong>riva, avveckla。</p>
+              <p><strong>高频搭配：</strong>bygga hus, bygga ut, bygga om, bygga datacenter, bygga relationer。</p>
+              <ul class="examples">
+                <li>De bygger en ny skola.｜他们在建一所新学校。</li>
+                <li>Staden ska bygga ut kollektivtrafiken.｜城市将扩建公共交通。</li>
+                <li>Projektet bygger på ny teknik.｜这个项目基于新技术。</li>
+              </ul>
+              <p><strong>场景：</strong>基础设施、城市建设、企业投资，也可用于抽象关系和系统。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">datacenter</span><span class="pos">名词，ett-词</span></div>
+              <p><strong>含义：</strong>数据中心；标题中是复数或同形用法，瑞典语常见外来复合词。</p>
+              <p><strong>变形：</strong>ett datacenter, datacentret/datacenteret, datacenter, datacentren/datacenterna。</p>
+              <p><strong>近义表达：</strong>serverhall, datahall。<strong>相关词：</strong>server, molntjänst, elförbrukning。</p>
+              <p><strong>高频搭配：</strong>bygga datacenter, driva datacenter, energikrävande datacenter, nytt datacenter。</p>
+              <ul class="examples">
+                <li>Företaget planerar ett nytt datacenter.｜公司计划建设一个新数据中心。</li>
+                <li>Datacentret kräver mycket el.｜数据中心需要大量电力。</li>
+                <li>Kommunen lockar investeringar i datacenter.｜市镇吸引数据中心投资。</li>
+              </ul>
+              <p><strong>场景：</strong>科技、能源、投资、地方发展新闻。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="study-card">
+        <div class="shot"><img src="Snipaste_2026-07-09_20-16-40.png" alt="SVT 标题截图：Risk för brist på vatten"></div>
+        <div class="card-body">
+          <div class="meta-row"><span class="tag red">SVERIGE</span><span class="tag yellow">风险表达</span></div>
+          <h3>Risk för brist på vatten</h3>
+          <p class="zh">中文：有缺水风险。</p>
+          <p class="gist">标题大意：强调瑞典语中非常典型的结构 `risk för + 名词`。标题说明存在风险，但不说明具体地区或原因。</p>
+          <div class="vocab-list">
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">risk</span><span class="pos">名词，en-词</span></div>
+              <p><strong>含义：</strong>风险、危险可能性；标题中 `risk för` 表示“有……的风险”。</p>
+              <p><strong>变形：</strong>en risk, risken, risker, riskerna。</p>
+              <p><strong>近义词：</strong>fara, hot, osäkerhet。<strong>反义词：</strong>säkerhet, trygghet。</p>
+              <p><strong>高频搭配：</strong>risk för brand, risk för översvämning, ökad risk, minska risken。</p>
+              <ul class="examples">
+                <li>Det finns risk för halka.｜有路滑风险。</li>
+                <li>Risken för brand är hög.｜火灾风险很高。</li>
+                <li>Vaccinet minskar risken för sjukdom.｜疫苗降低患病风险。</li>
+              </ul>
+              <p><strong>场景：</strong>天气、公共安全、健康、经济报道中极常见。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">brist</span><span class="pos">名词，en-词</span></div>
+              <p><strong>含义：</strong>短缺、缺乏；标题中 `brist på vatten` 是“缺水”。</p>
+              <p><strong>变形：</strong>en brist, bristen, brister, bristerna。常用介词：brist på。</p>
+              <p><strong>近义词：</strong>underskott, avsaknad, knapphet。<strong>反义词：</strong>överskott, tillgång。</p>
+              <p><strong>高频搭配：</strong>brist på personal, brist på pengar, brist på mat, vattenbrist。</p>
+              <ul class="examples">
+                <li>Sjukhuset har brist på personal.｜医院人手短缺。</li>
+                <li>Det råder brist på bostäder.｜住房短缺。</li>
+                <li>Bristen på vatten oroar invånarna.｜缺水让居民担忧。</li>
+              </ul>
+              <p><strong>场景：</strong>社会问题、供应链、医疗、自然资源新闻。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">vatten</span><span class="pos">名词，ett-词</span></div>
+              <p><strong>含义：</strong>水；标题中指生活或自然资源意义上的水。</p>
+              <p><strong>变形：</strong>ett vatten, vattnet。复数可作 `vatten`，但日常更常作不可数名词。</p>
+              <p><strong>近义或相关词：</strong>dricksvatten, grundvatten, vattennivå。<strong>反义或对照：</strong>torka, torrhet。</p>
+              <p><strong>高频搭配：</strong>brist på vatten, spara vatten, förorena vatten, vattennivån sjunker。</p>
+              <ul class="examples">
+                <li>Kommunen uppmanar invånarna att spara vatten.｜市镇呼吁居民节约用水。</li>
+                <li>Vattennivån i sjön är låg.｜湖水水位很低。</li>
+                <li>Alla behöver rent dricksvatten.｜所有人都需要干净饮用水。</li>
+              </ul>
+              <p><strong>场景：</strong>天气、环境、市政、公共卫生新闻。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="study-card">
+        <div class="shot"><img src="Snipaste_2026-07-09_20-17-06.png" alt="SVT 标题截图：Frankrike möter Marocko"></div>
+        <div class="card-body">
+          <div class="meta-row"><span class="tag red">VM I FOTBOLL</span><span class="tag green">体育标题</span></div>
+          <h3>Frankrike möter Marocko</h3>
+          <p class="zh">中文：法国对阵摩洛哥。</p>
+          <p class="gist">标题大意：体育新闻中 `möter` 不只是“见面”，常表示“迎战、对阵”。标题没有说明比赛结果。</p>
+          <div class="vocab-list">
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">möta</span><span class="pos">动词</span></div>
+              <p><strong>含义：</strong>遇见、会见、迎战；标题中是体育语境里的“对阵”。</p>
+              <p><strong>变形：</strong>möter, mötte, mött。</p>
+              <p><strong>近义词：</strong>träffa, ställas mot, spela mot。<strong>反义或对照：</strong>undvika, missa。</p>
+              <p><strong>高频搭配：</strong>möta ett lag, möta kritik, möta motstånd, möta pressen。</p>
+              <ul class="examples">
+                <li>Sverige möter Danmark i finalen.｜瑞典在决赛中对阵丹麦。</li>
+                <li>Ministern mötte pressen efter mötet.｜部长会后面对媒体。</li>
+                <li>Förslaget möter kritik.｜该提案遭到批评。</li>
+              </ul>
+              <p><strong>场景：</strong>体育、政治采访、社会争议里都高频。语境决定它是“见面”还是“面对”。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">VM</span><span class="pos">缩写名词</span></div>
+              <p><strong>含义：</strong>världsmästerskap，世界锦标赛/世界杯。截图栏目 `VM I FOTBOLL` 是“足球世界杯/足球世锦赛”。</p>
+              <p><strong>相关表达：</strong>fotbolls-VM, VM-final, VM-kval, landslag。</p>
+              <p><strong>高频搭配：</strong>spela VM, vinna VM, gå vidare i VM, åka ur VM。</p>
+              <ul class="examples">
+                <li>Laget spelar VM i sommar.｜球队今年夏天参加世界杯。</li>
+                <li>De gick vidare i VM.｜他们在世界杯中晋级。</li>
+                <li>VM-finalen spelas på söndag.｜世界杯决赛周日举行。</li>
+              </ul>
+              <p><strong>场景：</strong>体育新闻中极常见，瑞典语新闻很爱用缩写。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">Frankrike / Marocko</span><span class="pos">专有名词，国家名</span></div>
+              <p><strong>含义：</strong>Frankrike 是法国，Marocko 是摩洛哥。国家名通常不加冠词。</p>
+              <p><strong>相关形容词：</strong>fransk, marockansk。相关人群名词：fransman/fransyska, marockan。</p>
+              <p><strong>高频搭配：</strong>i Frankrike, från Marocko, Frankrikes landslag, marockanska spelare。</p>
+              <ul class="examples">
+                <li>Hon kommer från Marocko.｜她来自摩洛哥。</li>
+                <li>Frankrike vann matchen.｜法国赢得了比赛。</li>
+                <li>Marockanska fans firade segern.｜摩洛哥球迷庆祝胜利。</li>
+              </ul>
+              <p><strong>场景：</strong>国际、体育、旅游、政治新闻常用。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <h2>词汇延伸表：本组最值得积累的 18 个表达</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>瑞典语</th>
+            <th>中文意思</th>
+            <th>高频搭配</th>
+            <th>近义表达</th>
+            <th>例句</th>
+            <th>记忆提示</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>attack</td><td>袭击、攻击</td><td>attack mot, flera attacker</td><td>angrepp, anfall</td><td>Attacken skedde i natt.｜袭击发生在夜间。</td><td>英语 attack 同源，瑞典语复数常见 `attacker`。</td></tr>
+          <tr><td>fortsätta</td><td>继续</td><td>fortsätta att öka, fortsätta samtalen</td><td>pågå, hålla på</td><td>Arbetet fortsätter i dag.｜工作今天继续。</td><td>`fortsätter` 是现在，`fortsatte` 是过去。</td></tr>
+          <tr><td>i natt</td><td>昨夜、今夜</td><td>hände i natt, föll i natt</td><td>under natten</td><td>Det blåste hårt i natt.｜昨夜风很大。</td><td>新闻快讯的时间状语，放句尾很自然。</td></tr>
+          <tr><td>fransk</td><td>法国的</td><td>franska soldater, franska myndigheter</td><td>från Frankrike</td><td>Franska myndigheter varnar.｜法国当局发出警告。</td><td>修饰复数和定形常用 `franska`。</td></tr>
+          <tr><td>soldat</td><td>士兵</td><td>skicka soldater, utländska soldater</td><td>militär</td><td>Soldaterna övar i området.｜士兵在该地区演练。</td><td>`soldater` 是复数不定形。</td></tr>
+          <tr><td>försvar</td><td>防务、国防</td><td>stärka försvaret, svenskt försvar</td><td>skydd, militärt försvar</td><td>Försvaret behöver mer pengar.｜国防需要更多资金。</td><td>`försvaret` 常指国防系统。</td></tr>
+          <tr><td>vilja</td><td>想要、希望</td><td>vill bygga, vill se, vill stoppa</td><td>önska, planera att</td><td>Partiet vill ändra lagen.｜该党想修改法律。</td><td>`vill + 动词原形` 是标题高频结构。</td></tr>
+          <tr><td>bygga</td><td>建设、建造</td><td>bygga ut, bygga om, bygga datacenter</td><td>uppföra, anlägga</td><td>De bygger en bro.｜他们在建一座桥。</td><td>可具体建房，也可抽象建立关系。</td></tr>
+          <tr><td>datacenter</td><td>数据中心</td><td>nytt datacenter, driva datacenter</td><td>serverhall, datahall</td><td>Datacentret kräver el.｜数据中心需要电力。</td><td>科技新闻常见复合外来词。</td></tr>
+          <tr><td>risk</td><td>风险</td><td>risk för brand, ökad risk</td><td>fara, hot</td><td>Det finns risk för regn.｜有下雨风险。</td><td>`risk för + 名词` 直接对应“……风险”。</td></tr>
+          <tr><td>brist</td><td>短缺</td><td>brist på vatten, brist på personal</td><td>underskott, knapphet</td><td>Det råder brist på läkare.｜医生短缺。</td><td>`brist på` 是固定介词搭配。</td></tr>
+          <tr><td>vatten</td><td>水</td><td>spara vatten, rent vatten</td><td>dricksvatten, grundvatten</td><td>Vi måste spara vatten.｜我们必须节约用水。</td><td>通常作不可数，定形 `vattnet`。</td></tr>
+          <tr><td>möta</td><td>遇见、对阵、面对</td><td>möta kritik, möta ett lag</td><td>träffa, spela mot</td><td>Norge möter Sverige.｜挪威对阵瑞典。</td><td>体育语境优先理解为“对阵”。</td></tr>
+          <tr><td>VM</td><td>世界锦标赛/世界杯</td><td>VM-final, spela VM</td><td>världsmästerskap</td><td>Laget går vidare i VM.｜球队在世界杯晋级。</td><td>瑞典语新闻喜欢用缩写。</td></tr>
+          <tr><td>i Sverige</td><td>在瑞典</td><td>bo i Sverige, bygga i Sverige</td><td>inom Sverige</td><td>Företaget växer i Sverige.｜公司在瑞典发展。</td><td>国家前用介词 `i`。</td></tr>
+          <tr><td>på vatten</td><td>对水/水的短缺结构中用法</td><td>brist på vatten, tillgång på vatten</td><td>vattenbrist</td><td>Det finns brist på vatten.｜存在缺水。</td><td>`brist på` 后接缺少的东西。</td></tr>
+          <tr><td>mot</td><td>针对、对阵、朝向</td><td>attack mot, spela mot</td><td>gentemot, motståndare</td><td>De spelar mot Marocko.｜他们对阵摩洛哥。</td><td>新闻和体育都很高频。</td></tr>
+          <tr><td>på plats</td><td>在现场、到位</td><td>soldater på plats, polis på plats</td><td>där, närvarande</td><td>Polisen är på plats.｜警方在现场。</td><td>本组由 `soldater` 延伸，突发新闻常见。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>新闻标题常见表达总结</h2>
+      <div class="pattern-list">
+        <div class="pattern">
+          <strong>1. 省略主语：Vill bygga...</strong>
+          <p>标题常省略主语，依靠栏目词或图片上下文补足。例如 `Vill bygga datacenter i Sverige`，结构是 `vill + 动词原形 + 宾语/地点`。</p>
+        </div>
+        <div class="pattern">
+          <strong>2. 名词短语直接成标题</strong>
+          <p>`Franska soldater i Sverige` 没有动词，但信息足够紧凑。类似结构还有 `Nya attacker`, `Höga priser`, `Brist på motgift`。</p>
+        </div>
+        <div class="pattern">
+          <strong>3. 风险与短缺</strong>
+          <p>`risk för + 名词` 表示“……风险”；`brist på + 名词` 表示“缺少……”。这两个结构在天气、医疗、市政报道中都很常见。</p>
+        </div>
+        <div class="pattern">
+          <strong>4. 趋势继续</strong>
+          <p>`fortsätta` 常和增长、下降、攻击、谈判搭配：`fortsätta öka`, `fortsätta falla`, `attackerna fortsatte`。</p>
+        </div>
+        <div class="pattern">
+          <strong>5. 国家形容词 + 人/机构</strong>
+          <p>`franska soldater`, `svenska Saab`, `ryska idrottare` 这类结构高度新闻化。注意形容词随名词形式变化。</p>
+        </div>
+        <div class="pattern">
+          <strong>6. 体育里的 möta</strong>
+          <p>`Frankrike möter Marocko` 中 `möter` 是“对阵”。同一个词也可以表示“会见”和“面对批评”：`möta pressen`, `möta kritik`。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>最后复习区</h2>
+      <div class="review-card">
+        <h3>词汇自测：瑞典语 → 中文</h3>
+        <p>1. fortsätta　2. brist　3. risk　4. soldat　5. möta　6. datacenter</p>
+        <details>
+          <summary>查看参考答案</summary>
+          <p>1. 继续；2. 短缺；3. 风险；4. 士兵；5. 遇见/对阵/面对；6. 数据中心。</p>
+        </details>
+
+        <h3>搭配填空</h3>
+        <p>1. Det finns risk ___ brand.</p>
+        <p>2. Sjukhuset har brist ___ personal.</p>
+        <p>3. Sverige möter Danmark ___ finalen.</p>
+        <p>4. Företaget vill ___ ett datacenter.</p>
+        <details>
+          <summary>查看参考答案</summary>
+          <p>1. för　2. på　3. i　4. bygga</p>
+        </details>
+
+        <h3>翻译练习：中文 → 瑞典语</h3>
+        <p>1. 袭击在夜间继续。</p>
+        <p>2. 有缺水风险。</p>
+        <p>3. 法国对阵摩洛哥。</p>
+        <p>4. 公司想在瑞典建设数据中心。</p>
+        <details>
+          <summary>查看参考答案</summary>
+          <p>1. Attackerna fortsatte under natten / i natt.</p>
+          <p>2. Det finns risk för brist på vatten.</p>
+          <p>3. Frankrike möter Marocko.</p>
+          <p>4. Företaget vill bygga datacenter i Sverige.</p>
+        </details>
+
+        <p class="small">提示：标题瑞典语追求短、硬、信息密度高。复习时可以先背固定搭配，再回到整句标题里感受它的新闻语气。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>本页为瑞典语学习笔记，新闻事实请以原始 SVT 报道为准。</p>
+    </div>
+  </footer>
+</body>
+</html>
