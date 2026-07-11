@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>从 SVT 新闻标题学瑞典语｜2026-07-10</title>
+  <style>
+    :root {
+      --red: #e11d35;
+      --ink: #17202a;
+      --muted: #5c6876;
+      --line: #dbe2ea;
+      --paper: #f6f8fb;
+      --card: #ffffff;
+      --blue: #1f5fa8;
+      --green: #0b7650;
+      --amber: #936b00;
+      --soft-red: #fff1f3;
+      --soft-blue: #eef6ff;
+      --soft-green: #eefaf4;
+      --soft-amber: #fff8df;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    .topbar { height: 8px; background: var(--red); }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.98), rgba(238,246,255,.94) 62%, rgba(255,241,243,.95)),
+        radial-gradient(circle at 88% 18%, rgba(225,29,53,.14), transparent 26%);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero { padding: 48px 0 34px; }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--red);
+      font-size: .88rem;
+      font-weight: 850;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 4.05rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 790px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.7vw, 1.23rem);
+    }
+
+    .source {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 8px 12px;
+      color: var(--muted);
+      background: rgba(255,255,255,.76);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-size: .94rem;
+    }
+
+    main { padding: 34px 0 54px; }
+    section { margin: 0 0 32px; }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: clamp(1.35rem, 2.2vw, 2rem);
+      line-height: 1.25;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.18rem;
+      line-height: 1.35;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .overview-card,
+    .study-card,
+    .pattern,
+    .review-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 10px 26px rgba(28, 42, 58, .06);
+    }
+
+    .overview-card { padding: 16px; }
+    .file { color: var(--muted); font-size: .88rem; word-break: break-all; }
+
+    .sv {
+      margin: 8px 0 5px;
+      font-size: 1.3rem;
+      line-height: 1.25;
+      font-weight: 850;
+    }
+
+    .zh { margin: 0; color: #374151; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--soft-blue);
+      color: var(--blue);
+      font-weight: 750;
+      font-size: .82rem;
+      white-space: nowrap;
+    }
+
+    .tag.red { background: var(--soft-red); color: #b31529; }
+    .tag.green { background: var(--soft-green); color: var(--green); }
+    .tag.amber { background: var(--soft-amber); color: var(--amber); }
+
+    .study-card { overflow: hidden; margin-bottom: 18px; }
+    .shot { background: #111827; border-bottom: 1px solid var(--line); }
+    .shot img { display: block; width: 100%; height: auto; }
+    .card-body { padding: 18px; }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .gist {
+      margin: 12px 0 16px;
+      padding: 12px;
+      border-left: 4px solid var(--red);
+      background: #fff8f9;
+      color: #374151;
+    }
+
+    .vocab-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .vocab {
+      padding: 13px;
+      border: 1px solid #e5eaf0;
+      border-radius: 8px;
+      background: #fbfdff;
+    }
+
+    .vocab-title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+
+    .word {
+      color: #111827;
+      font-weight: 850;
+      font-size: 1.12rem;
+    }
+
+    .pos { color: var(--muted); font-size: .9rem; }
+    .vocab p { margin: 5px 0; }
+    .examples { margin: 8px 0 0; padding-left: 20px; }
+    .examples li { margin: 4px 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      display: table;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #edf2f7;
+      font-size: .92rem;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .pattern-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .pattern { padding: 14px; }
+    .pattern strong { display: block; margin-bottom: 6px; }
+
+    .review-card { padding: 18px; }
+
+    details {
+      margin: 12px 0;
+      padding: 13px 15px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 26px 0 38px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      background: #ffffff;
+    }
+
+    .small { color: var(--muted); font-size: .92rem; }
+
+    @media (max-width: 860px) {
+      .grid,
+      .vocab-list,
+      .pattern-list { grid-template-columns: 1fr; }
+      .hero { padding: 36px 0 28px; }
+      table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar"></div>
+  <header>
+    <div class="wrap hero">
+      <p class="eyebrow">SVT Rubriker · Svenska ord</p>
+      <h1>从 SVT 新闻标题学瑞典语</h1>
+      <p class="subtitle">2026-07-10｜词汇扩展、同义词与高频表达。本页基于文件夹中的 SVT 新闻标题截图整理，重点学习标题里的短语结构、动词变形和新闻高频搭配。</p>
+      <p class="source">数据来源：本文件夹内 SVT 标题截图</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>新闻标题总览</h2>
+      <div class="grid">
+        <article class="overview-card">
+          <div class="file">Snipaste_2026-07-11_21-45-01.png</div>
+          <div class="sv">12 döda i skogsbrand</div>
+          <p class="zh">森林火灾中 12 人死亡。</p>
+        </article>
+        <article class="overview-card">
+          <div class="file">Snipaste_2026-07-11_21-45-22.png</div>
+          <div class="sv">Har velat mörda Trump</div>
+          <p class="zh">曾想谋杀特朗普。</p>
+        </article>
+        <article class="overview-card">
+          <div class="file">Snipaste_2026-07-11_21-45-44.png</div>
+          <div class="sv">Kan komma att förbjudas</div>
+          <p class="zh">可能会被禁止。</p>
+        </article>
+        <article class="overview-card">
+          <div class="file">Snipaste_2026-07-11_21-46-11.png</div>
+          <div class="sv">Besked om antagning kom i dag</div>
+          <p class="zh">录取结果今天公布。</p>
+        </article>
+        <article class="overview-card">
+          <div class="file">Snipaste_2026-07-11_21-47-49.png</div>
+          <div class="sv">Dyrt med TBE-vaccin</div>
+          <p class="zh">TBE 疫苗费用高。</p>
+        </article>
+        <article class="overview-card">
+          <div class="file">Snipaste_2026-07-11_21-48-15.png</div>
+          <div class="sv">Frankrike vidare till semifinal</div>
+          <p class="zh">法国晋级半决赛。</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>标题逐条精读</h2>
+
+      <article class="study-card">
+        <div class="shot"><img src="Snipaste_2026-07-11_21-45-01.png" alt="SVT 标题截图：12 döda i skogsbrand"></div>
+        <div class="card-body">
+          <div class="meta-row"><span class="tag red">SPANIEN</span><span class="tag amber">事故灾害</span></div>
+          <h3>12 döda i skogsbrand</h3>
+          <p class="zh">中文：森林火灾中 12 人死亡。</p>
+          <p class="gist">标题大意：这是灾害新闻中极常见的压缩结构：数字 + `döda` + `i` + 事件。标题只说明死亡人数和事件类型，不展开原因。</p>
+          <div class="vocab-list">
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">död / döda</span><span class="pos">形容词/名词化形容词</span></div>
+              <p><strong>含义：</strong>死的；`12 döda` 可理解为“12 名死者/12 人死亡”。</p>
+              <p><strong>变形：</strong>död, dött, döda。动词是 `dö`，过去式 `dog`，完成分词 `dött`。</p>
+              <p><strong>近义表达：</strong>omkommen, avliden。<strong>反义词：</strong>levande。</p>
+              <p><strong>高频搭配：</strong>flera döda, hittades död, död efter olycka, döda i brand。</p>
+              <ul class="examples">
+                <li>Tre personer hittades döda.｜三人被发现死亡。</li>
+                <li>Minst tio är döda efter olyckan.｜事故后至少十人死亡。</li>
+                <li>Han dog på sjukhuset.｜他在医院去世。</li>
+              </ul>
+              <p><strong>场景：</strong>突发、事故、犯罪新闻中使用，语气严肃。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">skogsbrand</span><span class="pos">名词，en-词</span></div>
+              <p><strong>含义：</strong>森林火灾；由 `skog` 森林 + `brand` 火灾构成。</p>
+              <p><strong>变形：</strong>en skogsbrand, skogsbranden, skogsbränder, skogsbränderna。</p>
+              <p><strong>近义表达：</strong>brand i skogen, naturbrand。<strong>反义或对照：</strong>släckning, regn。</p>
+              <p><strong>高频搭配：</strong>bekämpa skogsbrand, sprida sig, kraftig skogsbrand, risk för skogsbrand。</p>
+              <ul class="examples">
+                <li>Skogsbranden spred sig snabbt.｜森林火灾迅速蔓延。</li>
+                <li>Brandmännen bekämpar branden.｜消防员正在扑火。</li>
+                <li>Det är stor risk för skogsbrand.｜森林火灾风险很高。</li>
+              </ul>
+              <p><strong>场景：</strong>天气、灾害、气候与地方新闻。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="study-card">
+        <div class="shot"><img src="Snipaste_2026-07-11_21-45-22.png" alt="SVT 标题截图：Har velat mörda Trump"></div>
+        <div class="card-body">
+          <div class="meta-row"><span class="tag red">IRAN</span><span class="tag">完成时与意图</span></div>
+          <h3>Har velat mörda Trump</h3>
+          <p class="zh">中文：曾想谋杀特朗普。</p>
+          <p class="gist">标题大意：标题使用 `har velat + 动词原形`，表示截至现在可被报道的过去意图。截图没有给出完整主语，学习时不要自行补充新闻事实。</p>
+          <div class="vocab-list">
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">ha velat</span><span class="pos">现在完成式短语</span></div>
+              <p><strong>含义：</strong>曾经想要、一直有意；`velat` 是 `vilja` 的 supinum。</p>
+              <p><strong>变形：</strong>vill, ville, velat。结构：`har velat + 动词原形`。</p>
+              <p><strong>近义表达：</strong>har planerat att, har haft för avsikt att, har önskat att。</p>
+              <p><strong>高频搭配：</strong>har velat stoppa, har velat ändra, har velat se, har velat mörda。</p>
+              <ul class="examples">
+                <li>Partiet har velat ändra lagen länge.｜该党长期以来想修改法律。</li>
+                <li>Hon har velat flytta till Sverige.｜她一直想搬到瑞典。</li>
+                <li>Polisen säger att mannen har velat skada flera personer.｜警方称该男子曾想伤害多人。</li>
+              </ul>
+              <p><strong>场景：</strong>政治、犯罪、人物意图报道。语气比单纯 `vill` 更强调此前已有的意愿。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">mörda</span><span class="pos">动词</span></div>
+              <p><strong>含义：</strong>谋杀；比 `döda` 更强调非法、蓄意杀害。</p>
+              <p><strong>变形：</strong>mördar, mördade, mördat。名词：ett mord；行为者：mördare。</p>
+              <p><strong>近义表达：</strong>döda, ta livet av。<strong>反义或对照：</strong>rädda, skydda。</p>
+              <p><strong>高频搭配：</strong>misstänks för mord, försöka mörda, dömd för mord, mörda en politiker。</p>
+              <ul class="examples">
+                <li>Mannen misstänks för mord.｜该男子涉嫌谋杀。</li>
+                <li>Hon dömdes för att ha mördat sin granne.｜她因谋杀邻居被判刑。</li>
+                <li>Polisen utreder mordet.｜警方正在调查谋杀案。</li>
+              </ul>
+              <p><strong>场景：</strong>犯罪新闻和法律语境，词义很重，日常慎用。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="study-card">
+        <div class="shot"><img src="Snipaste_2026-07-11_21-45-44.png" alt="SVT 标题截图：Kan komma att förbjudas"></div>
+        <div class="card-body">
+          <div class="meta-row"><span class="tag red">TELEFONFÖRSÄLJNING</span><span class="tag green">可能性 + 被动</span></div>
+          <h3>Kan komma att förbjudas</h3>
+          <p class="zh">中文：可能会被禁止。</p>
+          <p class="gist">标题大意：栏目词显示主题是电话销售。标题本身重点在结构 `kan komma att + 动词`，表示“可能将会……”，并用 `förbjudas` 的 s-passiv 表示被禁止。</p>
+          <div class="vocab-list">
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">kan komma att</span><span class="pos">固定趋势表达</span></div>
+              <p><strong>含义：</strong>可能会、将有可能；比单独 `kan` 更有新闻预测感。</p>
+              <p><strong>结构：</strong>`kan komma att + 动词原形`。</p>
+              <p><strong>近义表达：</strong>kan bli, väntas, riskerar att, kan komma att bli。</p>
+              <p><strong>高频搭配：</strong>kan komma att påverka, kan komma att ändras, kan komma att förbjudas。</p>
+              <ul class="examples">
+                <li>Reglerna kan komma att ändras.｜规则可能会改变。</li>
+                <li>Beslutet kan komma att påverka många.｜该决定可能会影响许多人。</li>
+                <li>Priset kan komma att höjas.｜价格可能会上调。</li>
+              </ul>
+              <p><strong>场景：</strong>政策、经济、法律变化的新闻标题中很常见。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">förbjuda / förbjudas</span><span class="pos">动词 / s-passiv</span></div>
+              <p><strong>含义：</strong>禁止；`förbjudas` 是被动形式，“被禁止”。</p>
+              <p><strong>变形：</strong>förbjuder, förbjöd, förbjudit；被动：förbjuds, förbjöds, förbjudits。</p>
+              <p><strong>近义词：</strong>stoppa, förhindra。<strong>反义词：</strong>tillåta, godkänna。</p>
+              <p><strong>高频搭配：</strong>förbjuda försäljning, bli förbjuden, förbud mot, totalförbud。</p>
+              <ul class="examples">
+                <li>Rökning är förbjuden här.｜这里禁止吸烟。</li>
+                <li>Regeringen vill förbjuda produkten.｜政府想禁止该产品。</li>
+                <li>Försäljningen kan förbjudas.｜销售可能被禁止。</li>
+              </ul>
+              <p><strong>场景：</strong>法律、政策、消费权益新闻。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="study-card">
+        <div class="shot"><img src="Snipaste_2026-07-11_21-46-11.png" alt="SVT 标题截图：Besked om antagning kom i dag"></div>
+        <div class="card-body">
+          <div class="meta-row"><span class="tag red">HÖGSKOLAN</span><span class="tag">教育申请</span></div>
+          <h3>Besked om antagning kom i dag</h3>
+          <p class="zh">中文：录取结果今天公布。</p>
+          <p class="gist">标题大意：围绕高校录取，使用 `besked om` 表示“关于……的通知/消息”，`kom i dag` 则是“今天出来/来了”。</p>
+          <div class="vocab-list">
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">besked</span><span class="pos">名词，ett-词</span></div>
+              <p><strong>含义：</strong>通知、答复、消息；标题中指录取结果通知。</p>
+              <p><strong>变形：</strong>ett besked, beskedet, besked, beskeden。</p>
+              <p><strong>近义词：</strong>meddelande, svar, information。<strong>反义或对照：</strong>ovisshet。</p>
+              <p><strong>高频搭配：</strong>få besked, ge besked, vänta på besked, besked om antagning。</p>
+              <ul class="examples">
+                <li>Vi väntar på besked från kommunen.｜我们在等市镇的答复。</li>
+                <li>Hon fick besked om jobbet i dag.｜她今天收到了工作结果通知。</li>
+                <li>Myndigheten ska ge besked nästa vecka.｜主管部门下周将给出答复。</li>
+              </ul>
+              <p><strong>场景：</strong>教育、行政、医疗、招聘等正式通知语境。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">antagning</span><span class="pos">名词，en-词</span></div>
+              <p><strong>含义：</strong>录取、招收；来自动词 `anta`，在教育申请中非常高频。</p>
+              <p><strong>变形：</strong>en antagning, antagningen。相关词：antagen 被录取的，ansökan 申请。</p>
+              <p><strong>近义表达：</strong>urval, intagning。<strong>反义或对照：</strong>avslag, nekad plats。</p>
+              <p><strong>高频搭配：</strong>besked om antagning, första antagningen, bli antagen, söka till högskolan。</p>
+              <ul class="examples">
+                <li>Antagningen till hösten är klar.｜秋季录取已完成。</li>
+                <li>Hon blev antagen till utbildningen.｜她被该教育项目录取。</li>
+                <li>Många sökande väntar på antagningen.｜许多申请者在等待录取结果。</li>
+              </ul>
+              <p><strong>场景：</strong>高校、职业教育、课程申请。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="study-card">
+        <div class="shot"><img src="Snipaste_2026-07-11_21-47-49.png" alt="SVT 标题截图：Dyrt med TBE-vaccin"></div>
+        <div class="card-body">
+          <div class="meta-row"><span class="tag red">FÄSTINGBETT</span><span class="tag amber">健康费用</span></div>
+          <h3>Dyrt med TBE-vaccin</h3>
+          <p class="zh">中文：TBE 疫苗费用高。</p>
+          <p class="gist">标题大意：使用 `dyrt med + 名词` 表达“……很贵/成本高”。栏目词 `FÄSTINGBETT` 表示“蜱虫叮咬”相关主题。</p>
+          <div class="vocab-list">
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">dyr</span><span class="pos">形容词</span></div>
+              <p><strong>含义：</strong>贵的、昂贵的；`dyrt` 是 ett-形式，也可作副词性用法。</p>
+              <p><strong>变形：</strong>dyr, dyrt, dyra。比较级：dyrare；最高级：dyrast。</p>
+              <p><strong>近义词：</strong>kostsam, prishög。<strong>反义词：</strong>billig, prisvärd。</p>
+              <p><strong>高频搭配：</strong>dyrt med, för dyrt, dyrare mat, höga kostnader。</p>
+              <ul class="examples">
+                <li>Det är dyrt att resa i sommar.｜今年夏天旅行很贵。</li>
+                <li>Maten har blivit dyrare.｜食品变贵了。</li>
+                <li>Det är dyrt med vaccin.｜疫苗费用高。</li>
+              </ul>
+              <p><strong>场景：</strong>消费、医疗、经济新闻和日常口语都常见。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">vaccin</span><span class="pos">名词，ett-词</span></div>
+              <p><strong>含义：</strong>疫苗；`TBE-vaccin` 是复合词，指 TBE 疫苗。</p>
+              <p><strong>变形：</strong>ett vaccin, vaccinet, vaccin, vaccinen。动词：vaccinera。</p>
+              <p><strong>近义或相关词：</strong>spruta, dos, vaccination。<strong>反义或对照：</strong>ovaccinerad。</p>
+              <p><strong>高频搭配：</strong>ta vaccin, få vaccin, vaccin mot TBE, tredje dosen。</p>
+              <ul class="examples">
+                <li>Barnen får vaccin i skolan.｜孩子们在学校接种疫苗。</li>
+                <li>Vaccin mot TBE kostar olika mycket.｜TBE 疫苗价格不同。</li>
+                <li>Många vill vaccinera sig inför sommaren.｜许多人想在夏天前接种疫苗。</li>
+              </ul>
+              <p><strong>场景：</strong>健康、医疗、公共卫生新闻。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="study-card">
+        <div class="shot"><img src="Snipaste_2026-07-11_21-48-15.png" alt="SVT 标题截图：Frankrike vidare till semifinal"></div>
+        <div class="card-body">
+          <div class="meta-row"><span class="tag red">VM I FOTBOLL</span><span class="tag green">体育晋级</span></div>
+          <h3>Frankrike vidare till semifinal</h3>
+          <p class="zh">中文：法国晋级半决赛。</p>
+          <p class="gist">标题大意：体育标题里经常省略动词，`vidare till` 就能表达“晋级到……”。标题没有说明比分或比赛过程。</p>
+          <div class="vocab-list">
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">vidare</span><span class="pos">副词</span></div>
+              <p><strong>含义：</strong>继续向前；体育中常指“晋级”。</p>
+              <p><strong>常见结构：</strong>`gå vidare`, `vara vidare`, `vidare till semifinal/final`。</p>
+              <p><strong>近义表达：</strong>gå vidare, avancera。<strong>反义表达：</strong>åka ur, slås ut。</p>
+              <p><strong>高频搭配：</strong>vidare till final, gå vidare i VM, ta sig vidare。</p>
+              <ul class="examples">
+                <li>Sverige gick vidare till final.｜瑞典晋级决赛。</li>
+                <li>Laget är vidare i turneringen.｜球队在赛事中晋级。</li>
+                <li>De slogs ut i kvartsfinalen.｜他们在四分之一决赛被淘汰。</li>
+              </ul>
+              <p><strong>场景：</strong>体育新闻尤其高频，语气简短利落。</p>
+            </div>
+            <div class="vocab">
+              <div class="vocab-title"><span class="word">semifinal</span><span class="pos">名词，en-词</span></div>
+              <p><strong>含义：</strong>半决赛；决赛是 `final`，四分之一决赛是 `kvartsfinal`。</p>
+              <p><strong>变形：</strong>en semifinal, semifinalen, semifinaler, semifinalerna。</p>
+              <p><strong>近义或相关词：</strong>slutspel, final, kvartsfinal。<strong>反义或对照：</strong>gruppspel。</p>
+              <p><strong>高频搭配：</strong>nå semifinal, spela semifinal, gå till semifinal, semifinalplats。</p>
+              <ul class="examples">
+                <li>Frankrike spelar semifinal på tisdag.｜法国周二踢半决赛。</li>
+                <li>Laget nådde semifinal för första gången.｜球队首次进入半决赛。</li>
+                <li>Semifinalen avgörs i kväll.｜半决赛今晚决出结果。</li>
+              </ul>
+              <p><strong>场景：</strong>体育赛制与赛事报道。</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <h2>词汇延伸表：本组最值得积累的 20 个表达</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>瑞典语</th>
+            <th>中文意思</th>
+            <th>高频搭配</th>
+            <th>近义表达</th>
+            <th>例句</th>
+            <th>记忆提示</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>död / döda</td><td>死亡的；死者</td><td>flera döda, död efter olycka</td><td>omkommen, avliden</td><td>Minst två är döda.｜至少两人死亡。</td><td>`döda` 可作复数形容词，也可名词化。</td></tr>
+          <tr><td>skogsbrand</td><td>森林火灾</td><td>kraftig skogsbrand, risk för skogsbrand</td><td>brand i skogen</td><td>Skogsbranden spred sig.｜森林火灾蔓延了。</td><td>`skog + brand` 的复合词。</td></tr>
+          <tr><td>brand</td><td>火灾</td><td>släcka brand, starta brand</td><td>eldsvåda</td><td>Branden är under kontroll.｜火势已受控。</td><td>和英语 brand 不同，不是“品牌”。</td></tr>
+          <tr><td>har velat</td><td>曾想、一直想</td><td>har velat ändra, har velat stoppa</td><td>har haft för avsikt att</td><td>Hon har velat studera länge.｜她一直想学习。</td><td>`velat` 是 `vilja` 的完成式核心。</td></tr>
+          <tr><td>mörda</td><td>谋杀</td><td>försöka mörda, dömd för mord</td><td>döda, ta livet av</td><td>Polisen utreder mordet.｜警方调查谋杀案。</td><td>`mord` 是名词，“谋杀”。</td></tr>
+          <tr><td>kan komma att</td><td>可能会</td><td>kan komma att ändras, påverka</td><td>kan bli, väntas</td><td>Reglerna kan komma att ändras.｜规则可能会改变。</td><td>新闻预测感比单独 `kan` 更强。</td></tr>
+          <tr><td>förbjuda</td><td>禁止</td><td>förbjuda försäljning, förbud mot</td><td>stoppa, förhindra</td><td>De vill förbjuda varan.｜他们想禁止该商品。</td><td>被动常见：`förbjudas`, `förbjuds`。</td></tr>
+          <tr><td>telefonförsäljning</td><td>电话销售</td><td>förbjuda telefonförsäljning</td><td>försäljning via telefon</td><td>Telefonförsäljning kritiseras.｜电话销售受到批评。</td><td>长复合词：telefon + försäljning。</td></tr>
+          <tr><td>besked</td><td>通知、答复</td><td>få besked, vänta på besked</td><td>svar, meddelande</td><td>Vi fick besked i dag.｜我们今天收到通知。</td><td>常用于正式结果。</td></tr>
+          <tr><td>antagning</td><td>录取</td><td>besked om antagning, bli antagen</td><td>intagning, urval</td><td>Antagningen är klar.｜录取完成了。</td><td>`anta` 是“录取/采纳”。</td></tr>
+          <tr><td>kom i dag</td><td>今天出来/来了</td><td>beskedet kom, svaret kom</td><td>publicerades, meddelades</td><td>Svaret kom i morse.｜答复今早来了。</td><td>瑞典语常用 `kom` 表示结果“出来”。</td></tr>
+          <tr><td>högskolan</td><td>高校、高等教育</td><td>söka till högskolan</td><td>universitetet</td><td>Hon söker till högskolan.｜她申请高校。</td><td>栏目词可帮助理解标题领域。</td></tr>
+          <tr><td>dyrt med</td><td>……很贵</td><td>dyrt med vaccin, dyrt med el</td><td>kostsamt med</td><td>Det är dyrt med el.｜电费很贵。</td><td>`dyrt med + 名词` 是口语和新闻都自然的结构。</td></tr>
+          <tr><td>vaccin</td><td>疫苗</td><td>vaccin mot TBE, ta vaccin</td><td>vaccination, dos</td><td>Vaccinet skyddar mot sjukdom.｜疫苗预防疾病。</td><td>`vaccin mot` 表示“针对……的疫苗”。</td></tr>
+          <tr><td>fästingbett</td><td>蜱虫叮咬</td><td>efter fästingbett, risk vid fästingbett</td><td>bett av fästing</td><td>Fästingbett kan ge besvär.｜蜱虫叮咬可能造成不适。</td><td>`bett` 是“叮咬/咬伤”。</td></tr>
+          <tr><td>vidare till</td><td>晋级到、继续到</td><td>vidare till semifinal/final</td><td>gå vidare, avancera</td><td>Laget är vidare till final.｜球队晋级决赛。</td><td>体育标题里常省略 `är`。</td></tr>
+          <tr><td>semifinal</td><td>半决赛</td><td>nå semifinal, spela semifinal</td><td>slutspel</td><td>Semifinalen spelas i kväll.｜半决赛今晚举行。</td><td>`semi-` 表“半”，`final` 是决赛。</td></tr>
+          <tr><td>VM i fotboll</td><td>足球世界杯/世锦赛</td><td>spela VM, gå vidare i VM</td><td>fotbolls-VM</td><td>Frankrike är vidare i VM.｜法国在世界杯晋级。</td><td>瑞典语体育新闻常用缩写。</td></tr>
+          <tr><td>i dag</td><td>今天</td><td>kom i dag, börjar i dag</td><td>denna dag</td><td>Lagen börjar gälla i dag.｜法律今天开始生效。</td><td>现代瑞典语常写作分开：`i dag`。</td></tr>
+          <tr><td>i + 事件</td><td>在……中</td><td>döda i brand, skadade i olycka</td><td>vid, under</td><td>Flera skadades i olyckan.｜多人在事故中受伤。</td><td>灾害事故标题特别高频。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>新闻标题常见表达总结</h2>
+      <div class="pattern-list">
+        <div class="pattern">
+          <strong>1. 数字 + döda/skadade</strong>
+          <p>`12 döda i skogsbrand` 省略了完整谓语，新闻标题用数字快速突出伤亡规模。类似：`Tre skadade i olycka`, `Flera döda efter attack`。</p>
+        </div>
+        <div class="pattern">
+          <strong>2. har + supinum + 动词原形</strong>
+          <p>`Har velat mörda` 用现在完成式回看过去意图。标题常省略主语，读者要从栏目或报道上下文补足。</p>
+        </div>
+        <div class="pattern">
+          <strong>3. kan komma att + 动词</strong>
+          <p>这是新闻里表达未来可能变化的优雅结构，比 `kan` 更正式。遇到政策、价格、规则时尤其高频。</p>
+        </div>
+        <div class="pattern">
+          <strong>4. s-passiv 被动</strong>
+          <p>`förbjudas` 表示“被禁止”。瑞典语新闻常用 `-s` 被动压缩句子：`stoppas`, `höjs`, `sänks`, `förbjuds`。</p>
+        </div>
+        <div class="pattern">
+          <strong>5. besked om + 名词</strong>
+          <p>`besked om antagning` 是“关于录取的通知”。同类有 `besked om stöd`, `besked om ersättning`, `besked om beslut`。</p>
+        </div>
+        <div class="pattern">
+          <strong>6. 体育标题省略动词</strong>
+          <p>`Frankrike vidare till semifinal` 可还原为 `Frankrike är vidare till semifinal`。体育标题追求短促，`vidare till` 本身就足够表达晋级。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>最后复习区</h2>
+      <div class="review-card">
+        <h3>词汇自测：瑞典语 → 中文</h3>
+        <p>1. skogsbrand　2. besked　3. antagning　4. förbjuda　5. vidare　6. fästingbett</p>
+        <details>
+          <summary>查看参考答案</summary>
+          <p>1. 森林火灾；2. 通知/答复；3. 录取；4. 禁止；5. 继续向前/晋级；6. 蜱虫叮咬。</p>
+        </details>
+
+        <h3>搭配填空</h3>
+        <p>1. Reglerna kan komma ___ ändras.</p>
+        <p>2. Vi väntar ___ besked.</p>
+        <p>3. Det är dyrt ___ TBE-vaccin.</p>
+        <p>4. Frankrike är vidare ___ semifinal.</p>
+        <details>
+          <summary>查看参考答案</summary>
+          <p>1. att　2. på　3. med　4. till</p>
+        </details>
+
+        <h3>翻译练习：中文 → 瑞典语</h3>
+        <p>1. 有 12 人在森林火灾中死亡。</p>
+        <p>2. 电话销售可能会被禁止。</p>
+        <p>3. 录取结果今天公布。</p>
+        <p>4. 法国晋级半决赛。</p>
+        <details>
+          <summary>查看参考答案</summary>
+          <p>1. 12 döda i skogsbrand / Tolv personer är döda i en skogsbrand.</p>
+          <p>2. Telefonförsäljning kan komma att förbjudas.</p>
+          <p>3. Besked om antagning kom i dag.</p>
+          <p>4. Frankrike är vidare till semifinal.</p>
+        </details>
+
+        <p class="small">复习建议：今天这组特别适合背“标题骨架”：`数字 + döda i...`、`kan komma att...`、`besked om...`、`dyrt med...`、`vidare till...`。掌握这些骨架后，换名词就能读懂很多 SVT 标题。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>本页为瑞典语学习笔记，新闻事实请以原始 SVT 报道为准。</p>
+    </div>
+  </footer>
+</body>
+</html>
